@@ -10,7 +10,137 @@ public class GettingStarted {
 		//GreatestOfThreeNumbers();
 		//LeapYearCheck();
 		//PrimeNumberCheck();
-		PrimeNumberRange();
+		//PrimeNumberRange();
+		//SumOfDigits();
+		//ReverseANumber();
+		//PalindromeNumber();
+		//AmstrongChecker();
+		AmstrongNumberIntervals();
+	}
+	
+	public static void AmstrongNumberIntervals()
+	{
+		Scanner sc=new Scanner(System.in);
+		int s=sc.nextInt();
+		int e=sc.nextInt();
+		
+		for(int i=s;i<=e;i++)
+		{
+			if(AmstrongCheckerBool(i)==true)
+				System.out.println(i +" ");
+		}
+		
+		sc.close();
+	}
+	
+	public static boolean AmstrongCheckerBool(int num)
+	{
+		int digits=NoOfDigits(num);
+		int temp=num,rem,sum=0;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			sum=sum+(int)Math.pow(rem, digits);
+			num/=10;
+		}
+		
+		if(sum==temp)
+			return true;
+		else
+			return false;
+	}
+	
+	public static void AmstrongChecker()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int digits=NoOfDigits(num);
+		int temp=num,rem,sum=0;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			sum=sum+ (int)Math.pow(rem, digits);
+			num/=10;
+		}
+		
+		if(sum==temp)
+			System.out.println("Amstrong!" +sum);
+		else
+			System.out.println("Needs to be strong! "+sum);
+		
+		sc.close();
+	}
+	
+	public static int NoOfDigits(int num) //for AmstrongCheck
+	{
+		int count=0;
+		while(num!=0)
+		{
+			count++;
+			num/=10;
+		}
+		
+		return count;
+	}
+	
+	public static void PalindromeNumber()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int temp=num;
+		int rev=0,rem;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			rev=(rev*10)+rem;
+			num/=10;
+		}
+		
+		if(rev==temp)
+			System.out.println("Plaindrome!");
+		else
+			System.out.println("Not a Palindrome Number!");
+	}
+	
+	public static void ReverseANumber()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int rev=0,rem;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			rev=(rev*10)+rem;
+			num/=10;
+		}
+		
+		System.out.println(rev);
+		sc.close();
+	}
+	
+	public static void SumOfDigits()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int sum=0,rem;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			sum+=rem;
+			num/=10;
+		}
+		
+		System.out.println("the sum of digits is: "+sum);
+		sc.close();
 	}
 	
 	public static void PrimeNumberRange()
