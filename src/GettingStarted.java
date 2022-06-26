@@ -9,7 +9,36 @@ public class GettingStarted {
 		//SumOfNumberInRange();
 		//GreatestOfThreeNumbers();
 		//LeapYearCheck();
-		PrimeNumberCheck();
+		//PrimeNumberCheck();
+		PrimeNumberRange();
+	}
+	
+	public static void PrimeNumberRange()
+	{
+		Scanner sc=new Scanner(System.in);
+		int first=sc.nextInt();
+		int last=sc.nextInt();
+		
+		int count;
+		
+		for(int i=first;i<=last;i++)
+		{
+			count=0;
+			for(int m=1;m<=i;m++)
+			{
+				if(i%m==0)
+				{
+					count++;
+				}
+			}
+			
+			if(count==2)
+			{
+				System.out.println(i+" ");
+			}
+		}
+		
+		sc.close();
 	}
 	
 	public static void PositiveOrNegative()
