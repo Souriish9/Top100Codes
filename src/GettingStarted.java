@@ -21,7 +21,85 @@ public class GettingStarted {
 		//FiboArray();
 		//Factorial();
 		//FactorsOfANumber();
-		PrimeFactorsOfNumber();
+		//PrimeFactorsOfNumber();
+		//StrongNumber();
+		//PerfectNumber();
+		//AutomorphicNumber();
+	}
+	
+	public static void AutomorphicNumber()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+
+		if(isAutomorphic(num))
+			System.out.println("automorphic!");
+		else
+			System.out.println("not an automorphic number!");
+		
+		sc.close();
+	}
+	
+	public static boolean isAutomorphic(int num)
+	{
+		int sq=num*num;
+		
+		while(num!=0)
+		{
+			if(sq%10!=num%10)
+			{
+				return false;
+			}
+			
+			sq/=10;
+			num/=10;
+		}
+		return true;
+	}
+	
+	public static void PerfectNumber()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int temp=num, sum=0;
+		
+		for(int i=1;i<num;i++)
+		{
+			if(num%i==0)
+			{
+				sum+=i;
+			}
+		}
+		
+		if(temp==sum)
+			System.out.println("perfect!");
+		else
+			System.out.println("needs to be perfect!");
+		
+		sc.close();
+	}
+	
+	public static void StrongNumber()
+	{
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+		
+		int temp=num,rem,sum=0;
+		
+		while(num!=0)
+		{
+			rem=num%10;
+			sum+=fact(rem);
+			num/=10;
+		}
+		
+		if(temp==sum)
+			System.out.println("Strong!");
+		else
+			System.out.println("Weak!");
+		
+		sc.close();
 	}
 	
 	public static void PrimeFactorsOfNumber()
